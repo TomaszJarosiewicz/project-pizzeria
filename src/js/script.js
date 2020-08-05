@@ -57,11 +57,15 @@
       const thisProduct = this;
       thisProduct.id = id;
       thisProduct.data = data;
+
       thisProduct.renderInMenu();
+      thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
       console.log('New product:', thisProduct);
-    };
+    }
 
     renderInMenu(){
       const thisProduct = this;
@@ -73,32 +77,66 @@
       const menuContainer = document.querySelector(select.containerOf.menu);
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
-    };
+    }
+
+    getElements(){
+      const thisProduct = this;
+
+      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
+      thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
+      thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
+      thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+    }
 
     initAccordion(){
       const thisProduct = this;
       /* find the clickable trigger (the element that should react to clicking) */
-      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-      console.log(clickableTrigger);
+      const clickableTrigger = thisProduct.accordionTrigger;
       /* START: click event listener to trigger */
       clickableTrigger.addEventListener('click', function(event) {
       /* prevent default action for event */
-      event.preventDefault();
-      /* toggle active class on element of thisProduct */
-      thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-      /* find all active products */
+        event.preventDefault();
+        /* toggle active class on element of thisProduct */
+        thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
+        /* find all active products */
         const allActiveProducts = document.querySelectorAll('.product.active');
-      /* START LOOP: for each active product */
+        /* START LOOP: for each active product */
         for(let allActiveProduct of allActiveProducts){
         /* START: if the active product isn't the element of thisProduct */
           if(allActiveProduct != thisProduct.element){
           /* remove class active for the active product */
-            allActiveProduct.classList.remove(className.menuProduct.wrapperActive);
+            allActiveProduct.classList.remove(classNames.menuProduct.wrapperActive);
           }
         }
       });
     }
-  };
+
+    initOrderForm(){
+      const thisProduct = this;
+      thisProduct.form.addEventListener('submit', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+
+      for(let input of thisProduct.formInputs){
+        input.addEventListener('change', function(){
+          thisProduct.processOrder();
+        });
+      }
+
+      thisProduct.cartButton.addEventListener('click', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+    }
+
+    processOrder(){
+      const thisProduct = this;
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('Form data:', formData);
+    }
+  }
 
   const app = {
     initMenu: function(){
@@ -127,4 +165,5 @@
   };
 
   app.init();
+
 }

@@ -40,13 +40,14 @@
     },
   };
 
-  const settings = {
-    amountWidget: {
-      defaultValue: 1,
-      defaultMin: 1,
-      defaultMax: 9,
-    }
-  };
+
+  // const settings = {
+  //   amountWidget: {
+  //     defaultValue: 1,
+  //     defaultMin: 1,
+  //     defaultMax: 9,
+  //   }
+  // };
 
   const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
@@ -63,8 +64,6 @@
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
       thisProduct.processOrder();
-
-      console.log('New product:', thisProduct);
     }
 
     renderInMenu(){
@@ -89,6 +88,7 @@
       // [href="#add-to-cart"]
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       // .product__total-price .price
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper); //.product__images
     }
 
     initAccordion(){
@@ -137,6 +137,7 @@
       const thisProduct = this;
       /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('Form data', thisProduct.form);
       /* set variable price to equal thisProduct.data.price */
       let price = thisProduct.data.price;
       /* START LOOP: for each paramId in thisProduct.data.params */
@@ -160,9 +161,17 @@
             price -= option.price;
           /* END ELSE IF: if option is not selected and option is default */
           }
-        /* END LOOP: for each optionId in param.options */
+          const images = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+          for(let image of images){
+            if(optionSelected){
+              image.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
+          /* END LOOP: for each optionId in param.options */
         }
-      /* END LOOP: for each paramId in thisProduct.data.params */
+        /* END LOOP: for each paramId in thisProduct.data.params */
       }
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = price;
@@ -184,11 +193,6 @@
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();

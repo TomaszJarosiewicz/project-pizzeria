@@ -1,9 +1,13 @@
 .header {
   padding: ($base-size * 5) 0;
-  background: $color-dark;
+  background-image: url('../../images/pizza-4968645_1280.jpg');
+  background-position: center center;
+  background-size: cover;
   color: $color-light;
 
   &__wrapper {
+    @include flex(column, center, center);
+    height: 100vh;
     position: relative;
   }
 
@@ -12,6 +16,8 @@
 .logo {
   display: inline-block;
   line-height: 1;
+  letter-spacing: 1px;
+  text-align: center;
 
   &__title {
     margin: 0 0 $base-size 0;

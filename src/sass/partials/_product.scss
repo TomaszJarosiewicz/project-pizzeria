@@ -1,9 +1,3 @@
-#product-list {
-  max-width: 740px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
 .product-list {
   padding: ($base-size * 3) 0;
 }
@@ -67,7 +61,7 @@
   }
 
   &__order {
-    // width: calc(100% - 400px);
+    width: calc(100% - 400px);
     opacity: 0;
     transition: opacity 200ms;
   }

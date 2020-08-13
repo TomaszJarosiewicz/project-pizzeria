@@ -34,9 +34,16 @@ input, select {
   border: 1px solid $color-dark;
   border-radius: $radius;
   padding: $base-size;
+
+  // CODE ADDED START
+  &.error {
+    border-color: $color-main;
+  }
+  // CODE ADDED END
 }
 
 .checkbox {
+  display: block;
   position: relative;
   padding-left: ($base-size * 2);
   margin-bottom: $base-size;

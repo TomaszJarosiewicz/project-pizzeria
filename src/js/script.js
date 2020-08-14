@@ -32,6 +32,7 @@
         linkIncrease: 'a[href="#more"]',
       },
     },
+    // CODE ADDED START
     cart: {
       productList: '.cart__order-summary',
       toggleTrigger: '.cart__summary',
@@ -50,6 +51,7 @@
       edit: '[href="#edit"]',
       remove: '[href="#remove"]',
     },
+    // CODE ADDED END
   };
 
   const classNames = {
@@ -83,6 +85,7 @@
     cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
     // CODE ADDED END
   };
+
 
   class Product {
     constructor(id, data) {
@@ -239,6 +242,7 @@
       thisProduct.data.name = thisProduct.name;
       thisProduct.amountWidget.value = thisProduct.amount;
       app.cart.add(thisProduct);
+      console.log('thisProduct', thisProduct);
     }
   }
 
@@ -326,11 +330,39 @@
       const thisCart = this;
 
       const generatedHTML = templates.cartProduct(menuProduct);
-      thisCart.element = utils.createDOMFromHTML(generatedHTML);
-      const cartContainer = document.querySelector(select.cart.productList);
-      cartContainer.appendChild(thisCart.element);
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      thisCart.dom.productList.appendChild(generatedDOM);
+
+      thisCart.products.push((menuProduct));
     }
   }
+
+  // class CartProduct {
+  //   constructor(menuProduct, element) {
+  //     const thisCartProduct = this;
+
+  //     thisCartProduct.id = menuProduct.id;
+  //     thisCartProduct.name = menuProduct.name;
+  //     thisCartProduct.price = menuProduct.price;
+  //     thisCartProduct.priceSingle = menuProduct.priceSingle;
+  //     thisCartProduct.amount = menuProduct.amount;
+  //     thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
+  //     thisCartProduct.getElements(element);
+
+  //     console.log('new CartProduct', thisCartProduct);
+  //     console.log('productData', menuProduct);
+  //   }
+
+  //   getElements(element){
+  //     const thisCartProduct = this;
+  //     thisCartProduct.dom = {};
+  //     thisCartProduct.dom.wrapper = element;
+  //     thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+  //     thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
+  //     thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
+  //     thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
+  //   }
+  // }
 
   const app = {
     initCart: function(){

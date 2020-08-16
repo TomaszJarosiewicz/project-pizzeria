@@ -12,6 +12,7 @@
             "error",
             2
         ],
+        "no-debugger": "off",
         "linebreak-style": [
             "off"
         ],

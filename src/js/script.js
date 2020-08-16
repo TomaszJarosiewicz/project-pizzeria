@@ -103,13 +103,9 @@
 
     renderInMenu(){
       const thisProduct = this;
-      /* generate HTML based on template */
       const generateHTML = templates.menuProduct(thisProduct.data);
-      /* create element using utils.createElementFromHTML */
       thisProduct.element = utils.createDOMFromHTML(generateHTML);
-      /* find menu container */
       const menuContainer = document.querySelector(select.containerOf.menu);
-      /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
 
@@ -130,21 +126,16 @@
 
     initAccordion(){
       const thisProduct = this;
-      /* find the clickable trigger (the element that should react to clicking) */
       const clickableTrigger = thisProduct.accordionTrigger;
-      /* START: click event listener to trigger */
+
       clickableTrigger.addEventListener('click', function(event) {
-      /* prevent default action for event */
         event.preventDefault();
-        /* toggle active class on element of thisProduct */
+
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-        /* find all active products */
         const allActiveProducts = document.querySelectorAll('.product.active');
-        /* START LOOP: for each active product */
+
         for(let allActiveProduct of allActiveProducts){
-        /* START: if the active product isn't the element of thisProduct */
           if(allActiveProduct != thisProduct.element){
-          /* remove class active for the active product */
             allActiveProduct.classList.remove(classNames.menuProduct.wrapperActive);
           }
         }
@@ -173,33 +164,26 @@
 
     processOrder(){
       const thisProduct = this;
-      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
-      const formData = utils.serializeFormToObject(thisProduct.form);
       thisProduct.params = {};
-      /* set variable price to equal thisProduct.data.price */
+      const formData = utils.serializeFormToObject(thisProduct.form);
       let price = thisProduct.data.price;
-      /* START LOOP: for each paramId in thisProduct.data.params */
+
       for(let paramId in thisProduct.data.params){
-      /* save the element in thisProduct.data.params with key paramId as const param */
+
         const param = thisProduct.data.params[paramId];
-        /* START LOOP: for each optionId in param.options */
+
         for(let optionId in param.options){
-        /* save the element in param.options with key optionId as const option */
           const option = param.options[optionId];
           const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
-          /* START IF: if option is selected and option is not default */
+
           if(optionSelected && !option.default){
-            /* add price of option to variable price */
             price += option.price;
-            /* END IF: if option is selected and option is not default */
-          }
-          /* START ELSE IF: if option is not selected and option is default */
-          else if(!optionSelected === option.default){
-          /* deduct price of option from price */
+          } else if(!optionSelected === option.default){
             price -= option.price;
-          /* END ELSE IF: if option is not selected and option is default */
           }
+
           const images = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+
           if(optionSelected){
             if(!thisProduct.params[paramId]){
               thisProduct.params[paramId] = {
@@ -207,7 +191,9 @@
                 options: {},
               };
             }
+
             thisProduct.params[paramId].options[optionId] = option.label;
+
             for(let image of images){
               image.classList.add(classNames.menuProduct.imageVisible);
             }
@@ -216,15 +202,11 @@
               image.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
-          /* END LOOP: for each optionId in param.options */
         }
-        /* END LOOP: for each paramId in thisProduct.data.params */
       }
-      /* set the contents of thisProduct.priceElem to be the value of variable price */
-      /* multiply price by amount */
+
       thisProduct.priceSingle = price;
       thisProduct.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
-
       thisProduct.priceElem.innerHTML = thisProduct.price;
     }
 
@@ -348,7 +330,6 @@
       const generatedHTML = templates.cartProduct(menuProduct);
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       thisCart.dom.productList.appendChild(generatedDOM);
-
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       thisCart.update();
     }

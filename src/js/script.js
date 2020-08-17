@@ -62,6 +62,7 @@
     // CODE ADDED START
     cart: {
       wrapperActive: 'active',
+      error: 'error'
     },
     // CODE ADDED END
   };
@@ -308,6 +309,8 @@
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
       thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
       thisCart.dom.form = this.dom.wrapper.querySelector(select.cart.form);
+      thisCart.dom.phone = this.dom.wrapper.querySelector(select.cart.phone);
+      thisCart.dom.address = this.dom.wrapper.querySelector(select.cart.address);
 
       for(let key of thisCart.renderTotalsKeys){
         console.log('Key', key);
@@ -381,11 +384,23 @@
     sendOrder(){
       const thisCart = this;
       const url = settings.db.url + '/' + settings.db.order;
+      thisCart.phone = thisCart.dom.phone.value;
+      thisCart.address = thisCart.dom.address.value;
 
       const payload = {
         address: 'test',
         totalPrice: thisCart.totalPrice,
+        totalNumber: thisCart.totalNumber,
+        subtotalPrice: thisCart.subtotalPrice,
+        deliveryFee: thisCart.deliveryFee,
+        phone: thisCart.phone,
+        email: thisCart.address,
+        products: []
       };
+
+      for(let thisCartProduct of thisCart.products){
+        payload.products.push(thisCartProduct.getData());
+      }
 
       const options = {
         method: 'POST',
@@ -418,9 +433,6 @@
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
       thisCartProduct.initActions();
-
-      // console.log('new CartProduct', thisCartProduct);
-      // console.log('productData', menuProduct);
     }
 
     getElements(element){
@@ -439,11 +451,8 @@
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
       thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
-        console.log('thisCartProduct.amount', thisCartProduct.amount);
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
-        console.log('thisCartProduct.price', thisCartProduct.price);
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
-        console.log('thisCartProduct.dom.price.innerHTML', thisCartProduct.dom.price.innerHTML);
       });
     }
 
@@ -471,6 +480,19 @@
         event.preventDefault();
         thisCartProduct.remove();
       });
+    }
+
+    getData(){
+      const thisCartProduct = this;
+
+      const data = {
+        id: thisCartProduct.name,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        amount: thisCartProduct.amount,
+        params: thisCartProduct.params
+      };
+      return data;
     }
   }
 

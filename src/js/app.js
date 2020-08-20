@@ -57,11 +57,15 @@ const app = {
         thisApp.activePage(id);
       });
     }
-    thisApp.activePage(thisApp.pages[0].id);
+
+    let pagesMatchingHash = [];
+    thisApp.activePage(pagesMatchingHash.length ? pagesMatchingHash[0].id : thisApp.pages[0].id);
   },
 
   activePage: function(pageId){
     const thisApp = this;
+    window.location.hash = '#/' + pageId;
+    console.log('Window.location', window.location.hash = '#/' + pageId);
 
     for(let link of thisApp.navLinks){
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);

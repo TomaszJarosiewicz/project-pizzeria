@@ -1,5 +1,6 @@
 import { Product } from './components/Product.js';
 import { Cart } from './components/Cart.js';
+import { Booking } from './components/Booking.js';
 import { select, settings, classNames } from './settings.js';
 
 const app = {
@@ -77,12 +78,22 @@ const app = {
     }
   },
 
+  initBooking: function(){
+    const thisApp = this;
+
+    thisApp.bookingWrapper = document.querySelector(select.containerOf.booking);
+    console.log('thisApp.bookingWrapper', thisApp.bookingWrapper);
+    const booking = new Booking(thisApp.bookingWrapper);
+    console.log('booking', booking);
+  },
+
   init: function(){
     const thisApp = this;
 
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 };
 

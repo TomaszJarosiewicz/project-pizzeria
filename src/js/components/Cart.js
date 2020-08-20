@@ -20,9 +20,9 @@ export class Cart {
     thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
     thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
     thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
-    thisCart.dom.form = this.dom.wrapper.querySelector(select.cart.form);
-    thisCart.dom.phone = this.dom.wrapper.querySelector(select.cart.phone);
-    thisCart.dom.address = this.dom.wrapper.querySelector(select.cart.address);
+    thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
+    thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
+    thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
 
     for(let key of thisCart.renderTotalsKeys){
       console.log('Key', key);

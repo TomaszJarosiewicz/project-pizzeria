@@ -46,12 +46,12 @@ export class AmountWidget{
     });
   }
 
-  announce(){
-    const thisWidget = this;
+  // announce(){
+  //   const thisWidget = this;
 
-    const event = new CustomEvent('updated', {
-      bubbles: true
-    });
-    thisWidget.element.dispatchEvent(event);
-  }
+  //   const event = new CustomEvent('updated', {
+  //     bubbles: true
+  //   });
+  //   thisWidget.element.dispatchEvent(event);
+  // }
 }

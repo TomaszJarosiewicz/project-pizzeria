@@ -7,7 +7,7 @@ export class AmountWidget extends BaseWidget{
 
     const thisWidget = this;
 
-    thisWidget.getElements(wrapper);
+    thisWidget.getElements();
     thisWidget.initActions();
   }
 

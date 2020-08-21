@@ -12,6 +12,7 @@ export class Booking {
 
   render(element){
     const thisBooking = this;
+
     thisBooking.dom = {};
     thisBooking.dom.wrapper = element;
 
@@ -28,6 +29,7 @@ export class Booking {
 
   initWidget(){
     const thisBooking = this;
+
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
 

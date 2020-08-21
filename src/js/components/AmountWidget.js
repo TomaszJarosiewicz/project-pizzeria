@@ -22,29 +22,23 @@ export class AmountWidget extends BaseWidget{
   initActions(){
     const thisWidget = this;
 
-    thisWidget.input.addEventListener('change', function(){
-      thisWidget.setValue(thisWidget.input.value);
+    thisWidget.dom.input.addEventListener('change', function(){
+      // thisWidget.setValue(thisWidget.input.value);
+      thisWidget.value = thisWidget.dom.input.value;
     });
 
-    thisWidget.linkDecrease.addEventListener('click', function(){
-      thisWidget.setValue(thisWidget.value - 1);
+    thisWidget.dom.linkDecrease.addEventListener('click', function(){
+      // thisWidget.setValue(thisWidget.value - 1);
+      thisWidget.value = thisWidget.dom.input.value --;
     });
 
-    thisWidget.linkIncrease.addEventListener('click', function(){
-      thisWidget.setValue(thisWidget.value + 1);
+    thisWidget.dom.linkIncrease.addEventListener('click', function(){
+      // thisWidget.setValue(thisWidget.value + 1);
+      thisWidget.value = thisWidget.dom.input.value ++;
     });
   }
 
   isValid(newValue){
     return !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax;
   }
-
-  // announce(){
-  //   const thisWidget = this;
-
-  //   const event = new CustomEvent('updated', {
-  //     bubbles: true
-  //   });
-  //   thisWidget.element.dispatchEvent(event);
-  // }
 }

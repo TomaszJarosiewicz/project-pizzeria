@@ -19,17 +19,6 @@ export class AmountWidget extends BaseWidget{
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
-  setValue(value){
-    const thisWidget = this;
-    const newValue = parseInt(value);
-
-    if(newValue !== thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
-      thisWidget.value = newValue;
-      thisWidget.announce();
-    }
-    thisWidget.input.value = thisWidget.value;
-  }
-
   initActions(){
     const thisWidget = this;
 
@@ -44,6 +33,10 @@ export class AmountWidget extends BaseWidget{
     thisWidget.linkIncrease.addEventListener('click', function(){
       thisWidget.setValue(thisWidget.value + 1);
     });
+  }
+
+  isValid(newValue){
+    return !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax;
   }
 
   // announce(){

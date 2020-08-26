@@ -65,7 +65,7 @@ const app = {
 
   activePage: function(pageId){
     const thisApp = this;
-    window.location.hash = '#/' + pageId;
+    // window.location.hash = '#/' + pageId;
     console.log('Window.location', window.location.hash = '#/' + pageId);
 
     for(let link of thisApp.navLinks){

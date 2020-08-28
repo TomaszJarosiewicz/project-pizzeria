@@ -137,21 +137,17 @@ export class Booking {
   updateDOM(){
     const thisBooking = this;
 
-    console.log('test', thisBooking);
-
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
     for(let domTables of thisBooking.dom.tables){
-      const tableID = domTables.getAttribute(settings.booking.tableIdAttribute);
-      console.log('tableID', tableID);
+      let tableID = domTables.getAttribute(settings.booking.tableIdAttribute);
+      tableID = parseInt(tableID);
 
-      if(thisBooking.booked[thisBooking.date]){
-        if(tableID == thisBooking.booked[thisBooking.date][thisBooking.hour]){
-          domTables.classList.add(classNames.booking.tableBooked);
-        } else {
-          domTables.classList.remove(classNames.booking.tableBooked);
-        }
+      if(thisBooking.booked[thisBooking.date] && thisBooking.booked[thisBooking.date][thisBooking.hour] && thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableID)){
+        domTables.classList.add(classNames.booking.tableBooked);
+      } else {
+        domTables.classList.remove(classNames.booking.tableBooked);
       }
     }
   }

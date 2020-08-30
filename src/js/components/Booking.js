@@ -51,8 +51,7 @@ export class Booking {
       thisBooking.updateDOM();
     });
 
-    thisBooking.dom.form.addEventListener('submit', function(event){
-      event.preventDefault();
+    thisBooking.dom.form.addEventListener('submit', function(){
       thisBooking.sendBooking();
     });
   }
@@ -149,7 +148,9 @@ export class Booking {
     const thisBooking = this;
 
     thisBooking.date = thisBooking.datePicker.value;
+    console.log('thisBooking.date', thisBooking.date);
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
+    console.log('thisBooking.hour', thisBooking.hour);
 
     for(let domTables of thisBooking.dom.tables){
       let tableID = domTables.getAttribute(settings.booking.tableIdAttribute);
@@ -157,8 +158,12 @@ export class Booking {
 
       if(thisBooking.booked[thisBooking.date] && thisBooking.booked[thisBooking.date][thisBooking.hour] && thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableID)){
         domTables.classList.add(classNames.booking.tableBooked);
+      } else if(typeof thisBooking.date === 'undefined' && thisBooking.hour){
+        domTables.classList.remove(classNames.booking.tableUnbooked);
+        domTables.classList.remove(classNames.booking.tableBooked);
       } else {
         domTables.classList.remove(classNames.booking.tableBooked);
+        domTables.classList.remove(classNames.booking.tableUnbooked);
       }
     }
   }
@@ -173,21 +178,20 @@ export class Booking {
       domTables.addEventListener('click', function(){
         if(domTables.classList.contains(classNames.booking.tableBooked)) {
           alert('Table is booked!');
-        }
-        else if(!domTables.classList.contains(classNames.booking.tableUnbooked)) {
+        } else if(!domTables.classList.contains(classNames.booking.tableUnbooked)) {
           domTables.classList.add(classNames.booking.tableUnbooked);
           console.log('Blooked');
           console.log('thisBooking.tableUnbooked', tableID);
-        }
-        else {
+        } else {
           domTables.classList.remove(classNames.booking.tableUnbooked);
           console.log('Unblooked');
-          console.log('thisBooking.tableUnbooked', tableID);
         }
+
         thisBooking.tableUnbooked = tableID;
         console.log('thisBooking.tableUnbooked', tableID);
       });
     }
+
   }
 
   sendBooking(){
@@ -221,6 +225,7 @@ export class Booking {
       },
       body: JSON.stringify(payload),
     };
+
     fetch(url, options)
       .then(function(response){
         return response.json();

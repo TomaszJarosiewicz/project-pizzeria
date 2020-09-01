@@ -21,7 +21,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
-          <a href="#home">Home</a>
+          <a href="#home">Order</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -61,29 +61,66 @@
       </div>
     </div>
   </header>
+
   <div id="pages">
+    <section id="home">
+      <div class="home-page-wrapper container"></div>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
     <section id="booking">
       <div class="booking-wrapper container"></div>
     </section>
-    <section id="home">
-      <div class="container-main">
-        <div class="menu">
-          <div class="nav-link order">
-          </div>
-          <div class="nav-link book">
-          </div>
-        </div>
-        <section class="info">
-          <h3 class="title">opening hours</h3>
-          <p class="subtitle">tue-sun, 12pm - 12am</p>
-        </section>
-      </div>
-    </section>
   </div>
 
+  <script id="template-home-page" type="text/x-handlebars-template">
+    <div class="home-widget">
+      <div class="home-nav">
+        <div class="nav-img bg-order">
+          <a class="nav-link" href="#order">Order</a>
+          <p class="description">order eat online</p>
+        </div>
+        <div class="nav-img bg-book">
+          <a class="nav-link" href="#booking">Booking</a>
+          <p class="description">reserve your table</p>
+        </div>
+      </div>
+      <section class="home-open">
+        <h2 class="title">opening hours:</h2>
+        <p class="subtitle">tue-sun, 12px - 12am</p>
+      </section>
+      <div class="home-gallery">
+        <div class="img img-1">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="img img-2">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="img img-3">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="img img-4">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="img img-5">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="img img-6">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="instagram-more">
+          <a href="#">View more on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </script>
 
   <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">

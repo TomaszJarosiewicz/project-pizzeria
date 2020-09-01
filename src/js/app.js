@@ -1,6 +1,7 @@
 import { Product } from './components/Product.js';
 import { Cart } from './components/Cart.js';
 import { Booking } from './components/Booking.js';
+import { Home } from './components/HomePage.js';
 import { select, settings, classNames } from './settings.js';
 
 const app = {
@@ -65,7 +66,7 @@ const app = {
 
   activePage: function(pageId){
     const thisApp = this;
-    // window.location.hash = '#/' + pageId;
+    window.location.hash = '#/' + pageId;
     console.log('Window.location', window.location.hash = '#/' + pageId);
 
     for(let link of thisApp.navLinks){
@@ -86,6 +87,14 @@ const app = {
     thisApp.booking = new Booking(thisApp.bookingWrapper);
   },
 
+  initMainPage: function() {
+    const thisApp = this;
+
+    thisApp.homeWrapper = document.querySelector(select.containerOf.mainPage);
+    console.log('Home', thisApp.homeWrapper);
+    thisApp.mainPage = new Home(thisApp.homeWrapper);
+  },
+
   init: function(){
     const thisApp = this;
 
@@ -93,6 +102,7 @@ const app = {
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initMainPage();
   },
 };
 

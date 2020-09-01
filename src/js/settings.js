@@ -2,6 +2,7 @@
 
 export const select = {
   templateOf: {
+    homePage: '#template-home-page',
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
@@ -11,6 +12,7 @@ export const select = {
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    mainPage: '.home-page-wrapper'
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -80,7 +82,6 @@ export const classNames = {
   },
   cart: {
     wrapperActive: 'active',
-    // error: 'error'
   },
   booking: {
     loading: 'loading',
@@ -128,6 +129,7 @@ export const settings = {
 };
 
 export const templates = {
+  homePage: Handlebars.compile(document.querySelector(select.templateOf.homePage).innerHTML),
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),

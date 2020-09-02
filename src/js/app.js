@@ -66,8 +66,21 @@ const app = {
 
   activePage: function(pageId){
     const thisApp = this;
+
+    thisApp.isDisabled = document.querySelector(select.containerOf.cart);
     window.location.hash = '#/' + pageId;
     console.log('Window.location', window.location.hash = '#/' + pageId);
+
+    if(window.location.hash === '#/' + 'home'){
+      thisApp.isDisabled.classList.add(classNames.cart.disabledCart);
+      thisApp.isDisabled.classList.remove(classNames.cart.enabledCart);
+      console.log('test');
+    } else {
+      if(window.location.hash === '#/' + 'order' || window.location.hash === '#/' + 'booking'){
+        thisApp.isDisabled.classList.add(classNames.cart.enabledCart);
+        thisApp.isDisabled.classList.remove(classNames.cart.disabledCart);
+      }
+    }
 
     for(let link of thisApp.navLinks){
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);

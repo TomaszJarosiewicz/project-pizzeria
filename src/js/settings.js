@@ -82,6 +82,8 @@ export const classNames = {
   },
   cart: {
     wrapperActive: 'active',
+    enabledCart: 'enabled-cart',
+    disabledCart: 'disabled-cart'
   },
   booking: {
     loading: 'loading',

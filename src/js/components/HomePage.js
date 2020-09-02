@@ -50,7 +50,6 @@ export class Home {
 
     if(window.location.hash === '#/' + 'home'){
       thisHome.isDisabled.classList.add(classNames.cart.disabledCart);
-      console.log('test');
     } else {
       if(window.location.hash === '#/' + 'order' || window.location.hash === '#/' + 'booking'){
         thisHome.isDisabled.classList.remove(classNames.cart.enabledCart);
@@ -66,6 +65,12 @@ export class Home {
     }
     for(let page of thisHome.pages){
       page.classList.toggle(classNames.nav.active, page.id == pageId);
+
+      if((page.classList.contains(classNames.nav.active)) == isBoolean){
+        thisHome.isDisabled.classList.remove(classNames.cart.disabledCart);
+      } else {
+        thisHome.isDisabled.classList.add(classNames.cart.enabledCart);
+      }
       console.log('Page', page);
     }
   }

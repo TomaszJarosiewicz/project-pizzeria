@@ -73,11 +73,9 @@ const app = {
 
     if(window.location.hash === '#/' + 'home'){
       thisApp.isDisabled.classList.add(classNames.cart.disabledCart);
-      thisApp.isDisabled.classList.remove(classNames.cart.enabledCart);
       console.log('test');
     } else {
       if(window.location.hash === '#/' + 'order' || window.location.hash === '#/' + 'booking'){
-        thisApp.isDisabled.classList.add(classNames.cart.enabledCart);
         thisApp.isDisabled.classList.remove(classNames.cart.disabledCart);
       }
     }

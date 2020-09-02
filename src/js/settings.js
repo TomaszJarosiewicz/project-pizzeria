@@ -72,6 +72,7 @@ export const select = {
   },
   nav: {
     links: '.main-nav a',
+    homeLinks: '.nav-img a'
   },
 };
 
@@ -82,7 +83,6 @@ export const classNames = {
   },
   cart: {
     wrapperActive: 'active',
-    enabledCart: 'enabled-cart',
     disabledCart: 'disabled-cart'
   },
   booking: {

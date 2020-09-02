@@ -194,7 +194,7 @@
       a {
         color: $color-main;
 
-        :hover {
+        &:hover {
           cursor: pointer;
           color: $color-main;
         }

@@ -72,7 +72,7 @@ export const select = {
   },
   nav: {
     links: '.main-nav a',
-    homeLinks: '.nav-img a'
+    homeLinks: '.home-nav a'
   },
 };
 

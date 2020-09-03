@@ -51,8 +51,8 @@ export class Booking {
       thisBooking.updateDOM();
     });
 
-    thisBooking.dom.form.addEventListener('submit', function(){
-      // event.preventDefault();
+    thisBooking.dom.form.addEventListener('submit', function(event){
+      event.preventDefault();
       thisBooking.sendBooking();
     });
   }
@@ -229,6 +229,7 @@ export class Booking {
         console.log('parsedResponse booking', parsedResponse);
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
         thisBooking.updateDOM();
+        window.location.reload();
       });
   }
 

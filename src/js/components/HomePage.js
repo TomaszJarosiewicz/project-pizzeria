@@ -48,14 +48,6 @@ export class Home {
     window.location.hash = '#/' + pageId;
     console.log('Window.location', window.location.hash = '#/' + pageId);
 
-    // if(window.location.hash === '#/' + 'home'){
-    //   thisHome.isDisabled.classList.add(classNames.cart.disabledCart);
-    // } else {
-    //   if(window.location.hash === '#/' + 'order' || window.location.hash === '#/' + 'booking'){
-    //     thisHome.isDisabled.classList.remove(classNames.cart.enabledCart);
-    //   }
-    // }
-
     for(let link of thisHome.navLinks){
       if((link.getAttribute('href') == '#' + pageId) === isBoolean){
         link.classList.add(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
@@ -69,7 +61,7 @@ export class Home {
       if((page.classList.contains(classNames.nav.active)) == isBoolean){
         thisHome.isDisabled.classList.remove(classNames.cart.disabledCart);
       } else {
-        thisHome.isDisabled.classList.add(classNames.cart.enabledCart);
+        thisHome.isDisabled.classList.add(classNames.cart.disabledCart);
       }
       console.log('Page', page);
     }

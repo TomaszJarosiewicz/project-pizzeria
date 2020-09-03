@@ -4,7 +4,6 @@ import { BaseWidget } from './BaseWidget.js';
 export class AmountWidget extends BaseWidget{
   constructor(wrapper){
     super(wrapper, settings.amountWidget.defaultValue);
-
     const thisWidget = this;
 
     thisWidget.getElements();
@@ -47,6 +46,7 @@ export class AmountWidget extends BaseWidget{
   }
 
   isValid(newValue){
+
     return !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax;
   }
 }

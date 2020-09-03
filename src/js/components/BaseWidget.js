@@ -8,10 +8,12 @@ export class BaseWidget{
   }
 
   parseValue(newValue){
+
     return parseInt(newValue);
   }
 
   isValid(newValue){
+
     return !isNaN(newValue);
   }
 
@@ -49,5 +51,4 @@ export class BaseWidget{
 
     thisWidget.renderValue();
   }
-
 }

@@ -7,6 +7,7 @@ export class Home {
 
     thisHome.render(thisHome.homeWrapper);
     thisHome.initPage();
+    thisHome.carousel();
   }
 
   render(element){
@@ -42,6 +43,7 @@ export class Home {
 
   activePage(pageId){
     const thisHome = this;
+
     let isBoolean = true;
 
     thisHome.isDisabled = document.querySelector(select.containerOf.cart);
@@ -65,5 +67,23 @@ export class Home {
       }
       console.log('Page', page);
     }
+  }
+
+  carousel(){
+    /* eslint-disable */
+    const swiper = new Swiper(select.containerOf.swiper, {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: select.containerOf.panigation,
+        clickable: true,
+      },
+    });
+
+    return swiper;
   }
 }

@@ -5,6 +5,7 @@ import { AmountWidget } from './AmountWidget.js';
 export class Product {
   constructor(id, data) {
     const thisProduct = this;
+
     thisProduct.id = id;
     thisProduct.data = data;
 
@@ -18,6 +19,7 @@ export class Product {
 
   renderInMenu(){
     const thisProduct = this;
+
     const generateHTML = templates.menuProduct(thisProduct.data);
     thisProduct.element = utils.createDOMFromHTML(generateHTML);
     const menuContainer = document.querySelector(select.containerOf.menu);
@@ -41,6 +43,7 @@ export class Product {
 
   initAccordion(){
     const thisProduct = this;
+
     const clickableTrigger = thisProduct.accordionTrigger;
 
     clickableTrigger.addEventListener('click', function(event) {
@@ -59,6 +62,7 @@ export class Product {
 
   initOrderForm(){
     const thisProduct = this;
+
     thisProduct.form.addEventListener('submit', function(event){
       event.preventDefault();
       thisProduct.processOrder();
@@ -79,6 +83,7 @@ export class Product {
 
   processOrder(){
     const thisProduct = this;
+
     thisProduct.params = {};
     const formData = utils.serializeFormToObject(thisProduct.form);
     let price = thisProduct.data.price;
@@ -127,6 +132,7 @@ export class Product {
 
   initAmountWidget(){
     const thisProduct = this;
+
     thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
     thisProduct.amountWidgetElem.addEventListener('updated', function(){
       thisProduct.processOrder();
@@ -145,6 +151,7 @@ export class Product {
         product: thisProduct,
       },
     });
+
     thisProduct.element.dispatchEvent(event);
   }
 }

@@ -102,6 +102,7 @@ export class Booking {
 
   parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
+
     console.log(bookings, eventsCurrent, eventsRepeat);
     thisBooking.booked = {};
 
@@ -172,9 +173,9 @@ export class Booking {
       tableID = parseInt(tableID);
 
       domTables.addEventListener('click', function(){
-        if(domTables.classList.contains(classNames.booking.tableBooked)) {
+        if(domTables.classList.contains(classNames.booking.tableBooked)){
           alert('Table is booked!');
-        } else if(!domTables.classList.contains(classNames.booking.tableUnbooked)) {
+        } else if(!domTables.classList.contains(classNames.booking.tableUnbooked)){
           domTables.classList.add(classNames.booking.tableUnbooked);
           console.log('Blooked');
           console.log('thisBooking.tableUnbooked', tableID);
@@ -232,7 +233,6 @@ export class Booking {
         window.location.reload();
       });
   }
-
 }
 
 

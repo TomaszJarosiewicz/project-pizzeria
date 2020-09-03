@@ -73,6 +73,7 @@ export class CartProduct {
       amount: thisCartProduct.amount,
       params: thisCartProduct.params
     };
+
     return data;
   }
 }

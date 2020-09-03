@@ -7,14 +7,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 10px;
-    height: 110px;
+    height: 100%;
 
     .nav-img {
       position: relative;
       background-size: cover;
       background-position: center center;
       width: 100%;
-      height: 100%;
+      height: 110px;
 
       &.bg-order {
         background-image: url("../../images/home-img/pizza-1.jpg");
@@ -25,7 +25,10 @@
       }
 
       .nav-link {
-        @include center();
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-decoration: none;
         font-size: 20px;
         color: $color-light;
@@ -50,7 +53,7 @@
 
         .nav-link {
           position: absolute;
-          top: 40%;
+          top: 20%;
           left: 50%;
           transform: translate(-50%, -50%);
           text-decoration: none;
@@ -158,6 +161,7 @@
       }
 
       &:hover {
+        cursor: pointer;
 
         .fa-heart, .fa-share-alt {
           font-size: 20px;
@@ -173,6 +177,7 @@
         }
 
         .fa-share-alt {
+          display: block;
 
           &:hover {
             color: $color-success;

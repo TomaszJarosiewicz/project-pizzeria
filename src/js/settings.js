@@ -71,7 +71,7 @@ export const select = {
     phone: '[name="phone"]',
     address: '[name="address"]',
     form: '.booking-form',
-    // rangeSlider: '.range-slider'
+    rangeSlider: '.range-slider'
   },
   nav: {
     links: '.main-nav a',

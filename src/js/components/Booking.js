@@ -37,7 +37,7 @@ export class Booking {
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
     thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
-    // thisBooking.dom.rangeSlider = thisBooking.dom.wrapper.querySelector(select.booking.rangeSlider);
+    thisBooking.dom.rangeSlider = thisBooking.dom.wrapper.querySelector(select.booking.rangeSlider);
   }
 
   initWidget(){
@@ -165,7 +165,7 @@ export class Booking {
       }
     }
 
-    // thisBooking.rangeColor();
+    thisBooking.rangeColor();
   }
 
   tableSelect(){
@@ -193,27 +193,27 @@ export class Booking {
     }
   }
 
-  // rangeColor(){
-  //   const thisBooking = this;
+  rangeColor(){
+    const thisBooking = this;
 
-  //   const startHour = settings.hours.open;
-  //   const endHour = settings.hours.close;
-  //   const datePicker = thisBooking.booked[thisBooking.datePicker.value];
+    const startHour = settings.hours.open;
+    const endHour = settings.hours.close;
+    const datePicker = thisBooking.booked[thisBooking.datePicker.value];
 
-  //   console.log('startHour', startHour, endHour);
-  //   console.log('datePicker', datePicker);
+    console.log('startHour', startHour, endHour);
+    console.log('datePicker', datePicker);
 
-  //   for(let i = startHour; i < endHour; i += 0.5){
+    for(let i = startHour; i < endHour; i += 0.5){
 
-  //     if(typeof datePicker[i] === 'undefined' || datePicker[i].length === 2){
-  //       console.log('orange');
-  //     } else if(datePicker[i].length === 1 || datePicker[i].length === 0){
-  //       console.log('green');
-  //     } else if(datePicker[i].length > 2) {
-  //       console.log('red');
-  //     }
-  //   }
-  // }
+      if(typeof datePicker[i] === 'undefined' || datePicker[i].length === 2){
+        console.log('orange');
+      } else if(datePicker[i].length === 1 || datePicker[i].length === 0){
+        console.log('green');
+      } else if(datePicker[i].length > 2) {
+        console.log('red');
+      }
+    }
+  }
 
   sendBooking(){
     const thisBooking = this;

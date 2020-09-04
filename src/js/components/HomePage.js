@@ -60,10 +60,9 @@ export class Home {
     for(let page of thisHome.pages){
       page.classList.toggle(classNames.nav.active, page.id == pageId);
 
-      if((page.classList.contains(classNames.nav.active)) == isBoolean){
+      if((page.classList.contains(classNames.nav.active)) === isBoolean){
+        console.log('(page.classList.contains(classNames.nav.active)', page.classList.contains(classNames.nav.active));
         thisHome.isDisabled.classList.remove(classNames.cart.disabledCart);
-      } else {
-        thisHome.isDisabled.classList.add(classNames.cart.disabledCart);
       }
       console.log('Page', page);
     }

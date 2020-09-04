@@ -14,7 +14,7 @@ export const select = {
     booking: '.booking-wrapper',
     mainPage: '.home-page-wrapper',
     swiper: '.swiper-container',
-    panigation: '.swiper-pagination'
+    panigation: '.swiper-pagination',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -70,7 +70,8 @@ export const select = {
     starters: '.booking-form [name="starter"]',
     phone: '[name="phone"]',
     address: '[name="address"]',
-    form: '.booking-form'
+    form: '.booking-form',
+    // rangeSlider: '.range-slider'
   },
   nav: {
     links: '.main-nav a',

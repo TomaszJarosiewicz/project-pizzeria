@@ -73,7 +73,6 @@ const app = {
 
     if(window.location.hash === '#/' + 'home'){
       thisApp.isDisabled.classList.add(classNames.cart.disabledCart);
-      console.log('test');
     } else {
       if(window.location.hash === '#/' + 'order' || window.location.hash === '#/' + 'booking'){
         thisApp.isDisabled.classList.remove(classNames.cart.disabledCart);

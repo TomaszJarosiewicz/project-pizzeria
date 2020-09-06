@@ -71,7 +71,7 @@ export const select = {
     phone: '[name="phone"]',
     address: '[name="address"]',
     form: '.booking-form',
-    rangeSlider: '.range-slider'
+    rangeSlider: '.rangeSlider'
   },
   nav: {
     links: '.main-nav a',
@@ -98,6 +98,11 @@ export const classNames = {
   },
   pages: {
     active: 'active',
+  },
+  sliderColors: {
+    green: '#2e9945',
+    orange: '#f6b93b',
+    red: '#e55039',
   },
 };
 

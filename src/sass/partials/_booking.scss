@@ -77,13 +77,14 @@
       width: ($base-size * 2);
       height: ($base-size * 2);
       top: -6px;
-      background: $color-dark;
+      background: transparent;
+      border: 7px solid $color-dark;
     }
 
   }
 
   &__fill {
-    background: $color-success;
+    background: transparent;
     transition-timing-function: cubic-bezier(0, 1, 0, 1);
     transition: width 100ms;
     box-shadow: none;

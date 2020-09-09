@@ -207,7 +207,6 @@ export class Booking {
     console.log('datePicker', datePicker);
 
     for(let i = startHour; i < endHour; i += 0.5){
-      percentage += 100 / endHour;
 
       if(typeof datePicker[i] === 'undefined' || datePicker[i].length === 1){
         const color = classNames.sliderColors.green + ' ' + percentage + '%';
@@ -215,10 +214,13 @@ export class Booking {
       } else if(datePicker[i].length === 2){
         const color = classNames.sliderColors.orange + ' ' + percentage + '%';
         fullColor.push(color);
-      } else if(datePicker[i].length === 3) {
+      } else if(datePicker[i].length === 3){
         const color = classNames.sliderColors.red + ' ' + percentage + '%';
         fullColor.push(color);
       }
+
+      percentage += 100 / endHour;
+
       console.log('fullColor', fullColor);
     }
 

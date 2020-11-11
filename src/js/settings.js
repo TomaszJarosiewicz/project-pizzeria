@@ -56,6 +56,7 @@ export const select = {
     formSubmit: '.cart__order [type="submit"]',
     phone: '[name="phone"]',
     address: '[name="address"]',
+    validateInfo: '.validate-info',
   },
   cartProduct: {
     amountWidget: '.widget-amount',
@@ -86,7 +87,8 @@ export const classNames = {
   },
   cart: {
     wrapperActive: 'active',
-    disabledCart: 'disabled-cart'
+    disabledCart: 'disabled-cart',
+    errorInput: 'error-input',
   },
   booking: {
     loading: 'loading',
@@ -121,6 +123,7 @@ export const settings = {
   },
   cart: {
     defaultDeliveryFee: 20,
+    maxlengthPhoneNumber: 9
   },
   booking: {
     tableIdAttribute: 'data-table',

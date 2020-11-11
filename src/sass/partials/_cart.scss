@@ -158,10 +158,14 @@
       margin-bottom: ($base-size / 2);
     }
 
+    .validate-info {
+      color: $color-main;
+    }
+
+    .error-input {
+      border: 1px solid $color-main;
+    }
+
   }
 
-}
-
-.error {
-  border: 1px solid #df0a0a;
 }

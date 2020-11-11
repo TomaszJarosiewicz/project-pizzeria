@@ -10,6 +10,7 @@ export class Cart {
     thisCart.getElements(element);
     thisCart.initActions();
     thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
+    thisCart.maxlengthPhoneNumber = settings.cart.maxlengthPhoneNumber;
   }
 
   getElements(element){
@@ -23,6 +24,7 @@ export class Cart {
     thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
     thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
     thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
+    thisCart.dom.validateInfo = thisCart.dom.wrapper.querySelector(select.cart.validateInfo);
 
     for(let key of thisCart.renderTotalsKeys){
       console.log('Key', key);
@@ -43,12 +45,36 @@ export class Cart {
 
     thisCart.dom.productList.addEventListener('remove', function(){
       thisCart.remove(event.detail.cartProduct);
+      thisCart.cartValidate();
     });
 
     thisCart.dom.form.addEventListener('submit', function(event){
       event.preventDefault();
-      thisCart.sendOrder();
+      thisCart.cartValidate();
     });
+  }
+
+  cartValidate(){
+    const thisCart = this;
+    /* eslint-disable */
+    const reqEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    /* eslint-enable */
+    thisCart.phone = thisCart.dom.phone;
+    thisCart.address = thisCart.dom.address;
+
+    if(thisCart.products.length === 0){
+      thisCart.dom.validateInfo.innerHTML = 'Your basket is empty';
+    } else {
+      if(thisCart.phone.value.length === thisCart.maxlengthPhoneNumber && reqEmail.test(thisCart.address.value)){
+        thisCart.dom.validateInfo.innerHTML = '';
+        thisCart.phone.classList.remove(classNames.cart.errorInput);
+        thisCart.address.classList.remove(classNames.cart.errorInput);
+        thisCart.sendOrder();
+      } else {
+        thisCart.phone.classList.add(classNames.cart.errorInput);
+        thisCart.address.classList.add(classNames.cart.errorInput);
+      }
+    }
   }
 
   add(menuProduct) {
@@ -68,11 +94,20 @@ export class Cart {
     thisCart.subtotalPrice = 0;
 
     for(let thisCartProduct of thisCart.products){
-      console.log('thisCartProduct', thisCartProduct);
+      console.log('thisCartProduct', thisCart.products.length);
       thisCart.subtotalPrice += thisCartProduct.price;
       thisCart.totalNumber += thisCartProduct.amount;
     }
-    thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+    if(thisCart.totalNumber === 0){
+      thisCart.deliveryFee = 0;
+      thisCart.totalPrice = 0;
+      thisCart.dom.validateInfo.innerHTML = 'Your basket is empty';
+    } else {
+      thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
+      thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+      thisCart.dom.validateInfo.innerHTML = '';
+    }
+
     console.log('Total number', thisCart.totalNumber);
     console.log('Subtotal price', thisCart.subtotalPrice);
     console.log('Total price', thisCart.totalPrice);

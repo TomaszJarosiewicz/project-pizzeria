@@ -221,7 +221,7 @@ export class Booking {
 
       percentage += 100 / endHour;
 
-      console.log('fullColor', fullColor);
+      // console.log('fullColor', fullColor);
     }
 
     const gradient = 'linear-gradient(to right,' + fullColor + ')';

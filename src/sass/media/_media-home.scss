@@ -1,0 +1,453 @@
+@media (min-width: 1025px) {
+
+  .main-nav {
+
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .home-widget {
+    padding: 72px 48px;
+
+    .nav-img {
+
+      .nav-link {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-size: 20px;
+        color: $color-light;
+        text-transform: uppercase;
+        transition: all .4s ease-in-out;
+      }
+
+      .description {
+        position: absolute;
+        bottom: -25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: $base-size + 1;
+        color: $color-dark;
+        text-transform: uppercase;
+        opacity: 0;
+        transition: all .4s ease-in-out;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .nav-link {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-decoration: none;
+          font-size: 20px;
+          color: $color-light;
+          text-transform: uppercase;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .description {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: $base-size + 1;
+          color: $color-light;
+          text-transform: uppercase;
+          opacity: 1;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .swiper-container {
+      height: 300px;
+
+      .swiper-img {
+        height: 190px;
+      }
+    }
+  }
+
+  .home-gallery {
+
+    .img {
+      @include flex(row, center, center);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        transition: all .4s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: .5;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .fa-heart, .fa-share-alt {
+          font-size: 20px;
+          color: $color-light;
+          transform: scale(1);
+          z-index: 1;
+          transition: all .4s ease-in-out;
+
+          &:hover {
+            color: $color-danger;
+            cursor: pointer;
+          }
+        }
+
+        .fa-share-alt {
+          display: block;
+
+          &:hover {
+            color: $color-success;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .fa-heart, .fa-share-alt {
+        padding: 0 10px;
+        transform: scale(0);
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    .instagram-more {
+      margin-top: 15px;
+
+      a {
+        color: $color-main;
+
+        &:hover {
+          cursor: pointer;
+          color: $color-main;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .main-nav {
+
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .home-widget {
+    padding: 72px 48px;
+
+    .nav-img {
+
+      .nav-link {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-size: 20px;
+        color: $color-light;
+        text-transform: uppercase;
+      }
+
+      .description {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: $base-size + 1;
+        color: $color-light;
+        text-transform: uppercase;
+        opacity: 1;
+      }
+    }
+
+    .swiper-container {
+      height: 300px;
+
+      .swiper-img {
+        height: 200px;
+      }
+    }
+
+    .home-gallery {
+
+      .img {
+        @include flex(row, flex-end, center);
+        padding: 10px;
+
+        .fa-heart, .fa-share-alt {
+          padding: 0 10px;
+          font-size: 20px;
+          color: $color-light;
+        }
+
+        .fa-heart {
+          color: $color-danger;
+        }
+
+        .fa-share-alt {
+          color: $color-success;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  .main-nav {
+
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .home-widget {
+    padding: 72px 48px;
+
+    .nav-img {
+
+      .nav-link {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-size: 20px;
+        color: $color-light;
+        text-transform: uppercase;
+      }
+
+      .description {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: $base-size + 1;
+        color: $color-light;
+        text-transform: uppercase;
+        opacity: 1;
+      }
+    }
+
+    .swiper-container {
+      height: 300px;
+
+      .swiper-img {
+        height: 200px;
+      }
+    }
+
+    .home-gallery {
+
+      .img {
+        @include flex(row, flex-end, center);
+        padding: 10px;
+
+        .fa-heart, .fa-share-alt {
+          padding: 0 10px;
+          font-size: 20px;
+          color: $color-light;
+        }
+
+        .fa-heart {
+          color: $color-danger;
+        }
+
+        .fa-share-alt {
+          color: $color-success;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .main-nav {
+
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .home-widget {
+    padding: 78px 56px;
+
+    .nav-img {
+
+      .nav-link {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-size: 20px;
+        color: $color-light;
+        text-transform: uppercase;
+      }
+
+      .description {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: $base-size + 1;
+        color: $color-light;
+        text-transform: uppercase;
+        opacity: 1;
+      }
+    }
+
+    .swiper-container {
+      height: 430px;
+
+      .swiper-img {
+        height: 200px;
+      }
+
+      .swiper-description {
+        height: 500px;
+      }
+    }
+
+    .home-gallery {
+
+      .img {
+        @include flex(row, flex-end, center);
+        padding: 10px;
+
+        .fa-heart, .fa-share-alt {
+          padding: 0 10px;
+          font-size: 20px;
+          color: $color-light;
+        }
+
+        .fa-heart {
+          color: $color-danger;
+        }
+
+        .fa-share-alt {
+          color: $color-success;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .main-nav {
+
+    a {
+      margin-right: $base-size * 2;
+      padding: $base-size;
+    }
+  }
+
+  .home-widget {
+    padding: 36px 10px;
+
+    .nav-img {
+
+      .nav-link {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-size: 20px;
+        color: $color-light;
+        text-transform: uppercase;
+      }
+
+      .description {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: $base-size + 1;
+        color: $color-light;
+        text-transform: uppercase;
+        opacity: 1;
+      }
+    }
+
+    .swiper-container {
+      height: 400px;
+
+      .swiper-img {
+        height: 150px;
+      }
+
+      .swiper-description {
+        height: 500px;
+      }
+    }
+
+    .home-gallery {
+
+      .img {
+        @include flex(row, flex-end, center);
+        padding: 10px;
+
+        .fa-heart, .fa-share-alt {
+          padding: 0 10px;
+          font-size: 20px;
+          color: $color-light;
+        }
+
+        .fa-heart {
+          color: $color-danger;
+        }
+
+        .fa-share-alt {
+          color: $color-success;
+        }
+      }
+    }
+  }
+
+}
+

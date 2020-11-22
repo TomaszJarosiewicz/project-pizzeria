@@ -44,9 +44,7 @@
     @extend .h2;
     color: $color-main;
     text-decoration: none;
-    margin-right: ($base-size * 2);
     text-align: center;
-    padding: $base-size ($base-size * 2);
     background: darken($color-dark, 5%);
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;

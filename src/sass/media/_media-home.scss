@@ -1,7 +1,5 @@
 @media (min-width: 1025px) {
-
   .main-nav {
-
     a {
       margin-right: ($base-size * 2);
       padding: $base-size ($base-size * 2);
@@ -12,7 +10,6 @@
     padding: 72px 48px;
 
     .nav-img {
-
       .nav-link {
         position: absolute;
         top: 35%;
@@ -82,7 +79,6 @@
   }
 
   .home-gallery {
-
     .img {
       @include flex(row, center, center);
 
@@ -148,13 +144,10 @@
       }
     }
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
   .main-nav {
-
     a {
       margin-right: ($base-size * 2);
       padding: $base-size ($base-size * 2);
@@ -165,7 +158,6 @@
     padding: 72px 48px;
 
     .nav-img {
-
       .nav-link {
         position: absolute;
         top: 20%;
@@ -200,7 +192,6 @@
     }
 
     .home-gallery {
-
       .img {
         @include flex(row, flex-end, center);
         padding: 10px;
@@ -221,13 +212,10 @@
       }
     }
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
   .main-nav {
-
     a {
       margin-right: ($base-size * 2);
       padding: $base-size ($base-size * 2);
@@ -238,7 +226,6 @@
     padding: 72px 48px;
 
     .nav-img {
-
       .nav-link {
         position: absolute;
         top: 20%;
@@ -273,7 +260,6 @@
     }
 
     .home-gallery {
-
       .img {
         @include flex(row, flex-end, center);
         padding: 10px;
@@ -294,13 +280,10 @@
       }
     }
   }
-
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-
   .main-nav {
-
     a {
       margin-right: ($base-size * 2);
       padding: $base-size ($base-size * 2);
@@ -311,7 +294,6 @@
     padding: 78px 56px;
 
     .nav-img {
-
       .nav-link {
         position: absolute;
         top: 20%;
@@ -350,7 +332,6 @@
     }
 
     .home-gallery {
-
       .img {
         @include flex(row, flex-end, center);
         padding: 10px;
@@ -371,13 +352,10 @@
       }
     }
   }
-
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-
   .main-nav {
-
     a {
       margin-right: $base-size * 2;
       padding: $base-size;
@@ -388,7 +366,6 @@
     padding: 36px 10px;
 
     .nav-img {
-
       .nav-link {
         position: absolute;
         top: 20%;
@@ -427,7 +404,6 @@
     }
 
     .home-gallery {
-
       .img {
         @include flex(row, flex-end, center);
         padding: 10px;
@@ -448,6 +424,5 @@
       }
     }
   }
-
 }
 

@@ -4,15 +4,11 @@
 
 .cart {
   position: absolute;
-  width: 300px; // CODE CHANGED
+   // CODE CHANGED
   right: 0;
-  top: $base-size;
   padding: ($base-size) ($base-size * 1.5);
-  background: $color-light;
   border-radius: $radius;
-  color: $color-main;
   font-size: $base-size;
-  box-shadow: 0 0 $base-size rgba(0, 0, 0, 0.2);
   z-index: 9999;
 
   &.active {
@@ -43,15 +39,10 @@
     line-height: 28px;
   }
 
-  &__total-price {
-    color: $color-dark;
-  }
-
   &__content {
     @include accordion-closed();
     opacity: 0;
     animation: flipdown 0.5s ease both;
-    color: $color-dark;
   }
 
   &__order-summary {

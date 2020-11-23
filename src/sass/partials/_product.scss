@@ -56,7 +56,6 @@
   }
 
   &__order {
-    width: calc(100% - 400px);
     opacity: 0;
     transition: opacity 200ms;
   }
@@ -69,18 +68,10 @@
 
   &__images {
     position: relative;
-    width: 350px;
-    height: 350px;
     opacity: 0;
     transition: opacity 200ms;
 
-    &.small {
-      width: 220px;
-      height: 220px;
-    }
-
     > img {
-      @include center();
       height: auto;
       opacity: 0;
       transition: opacity 500ms;

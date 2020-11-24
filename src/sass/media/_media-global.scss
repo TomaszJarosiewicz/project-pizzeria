@@ -1,0 +1,123 @@
+@media (min-width: 1025px) {
+  .main-nav {
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .cart {
+    top: $base-size;
+    width: 300px;
+    background: $color-light;
+    box-shadow: 0 0 $base-size rgba(0, 0, 0, 0.2);
+    color: $color-main;
+
+    &__total-price {
+      color: $color-dark;
+    }
+
+    &__content {
+      color: $color-dark;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-nav {
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .cart {
+    top: $base-size;
+    width: 300px;
+    background: $color-light;
+    box-shadow: 0 0 $base-size rgba(0, 0, 0, 0.2);
+    color: $color-main;
+
+    &__total-price {
+      color: $color-dark;
+    }
+
+    &__content {
+      color: $color-dark;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .main-nav {
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .cart {
+    top: $base-size;
+    width: 300px;
+    background: $color-light;
+    box-shadow: 0 0 $base-size rgba(0, 0, 0, 0.2);
+    color: $color-main;
+
+    &__total-price {
+      color: $color-dark;
+    }
+
+    &__content {
+      color: $color-dark;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .main-nav {
+    a {
+      margin-right: ($base-size * 2);
+      padding: $base-size ($base-size * 2);
+    }
+  }
+
+  .cart {
+    top: -60px;
+    width: 300px;
+    background: $color-dark;
+    color: $color-light;
+
+    &__total-price {
+      color: $color-light;
+    }
+
+    &__content {
+      color: $color-light;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .main-nav {
+    a {
+      margin-right: $base-size * 2;
+      padding: $base-size;
+    }
+  }
+
+  .cart {
+    top: -60px;
+    width: 100%;
+    background: $color-dark;
+    color: $color-light;
+
+    &__total-price {
+      color: $color-light;
+    }
+
+    &__content {
+      color: $color-light;
+    }
+  }
+}
+

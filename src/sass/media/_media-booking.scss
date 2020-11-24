@@ -1,0 +1,283 @@
+@media (min-width: 1025px) {
+  .booking-wrapper {
+    padding: ($base-size * 6) ($base-size * 4);
+  }
+
+  .time-picker {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .hour-picker {
+    width: 50%;
+  }
+
+  .floor-plan {
+    width: 320px;
+    height: 320px;
+
+    .bar {
+      left: 0;
+      bottom: 50px;
+      width: 100px;
+    }
+
+    .table {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    [data-table="2"] {
+      top: 25px;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+    }
+
+    [data-table="3"] {
+      top: 180px;
+    }
+  }
+
+  .booking-options {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .order-confirmation {
+    @include flex(row, flex-start, space-between);
+
+    input {
+      width: 38%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .booking-wrapper {
+    padding: ($base-size * 6) ($base-size * 4);
+  }
+
+  .time-picker {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .hour-picker {
+    width: 50%;
+  }
+
+  .floor-plan {
+    width: 320px;
+    height: 320px;
+
+    .bar {
+      left: 0;
+      bottom: 50px;
+      width: 100px;
+    }
+
+    .table {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    [data-table="2"] {
+      top: 25px;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+    }
+
+    [data-table="3"] {
+      top: 180px;
+    }
+  }
+
+  .booking-options {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .order-confirmation {
+    @include flex(row, flex-start, space-between);
+
+    input {
+      width: 38%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .booking-wrapper {
+    padding: ($base-size * 6) ($base-size * 4);
+  }
+
+  .time-picker {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .hour-picker {
+    width: 50%;
+  }
+
+  .floor-plan {
+    width: 320px;
+    height: 320px;
+
+    .bar {
+      left: 0;
+      bottom: 50px;
+      width: 100px;
+    }
+
+    .table {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    [data-table="2"] {
+      top: 25px;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+    }
+
+    [data-table="3"] {
+      top: 180px;
+    }
+  }
+
+  .booking-options {
+    @include flex(row, flex-start, space-between);
+  }
+
+  .order-confirmation {
+    @include flex(row, flex-start, space-between);
+
+    input {
+      width: 38%;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .booking-wrapper {
+    padding: ($base-size * 6) ($base-size * 9);
+  }
+
+  .time-picker {
+    @include flex(column, flex-start, space-between);
+  }
+
+  .hour-picker {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .floor-plan {
+    width: 100%;
+    height: 250px;
+
+    .bar {
+      left: 0;
+      bottom: 30px;
+      width: 100px;
+    }
+
+    .table {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    [data-table="2"] {
+      top: 30px;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+    }
+
+    [data-table="3"] {
+      top: 140px;
+    }
+  }
+
+  .booking-options {
+    @include flex(column, flex-start, space-between);
+  }
+
+  .order-confirmation {
+    @include flex(row, flex-start, space-between);
+    flex-wrap: wrap;
+
+    input {
+      width: 47%;
+      margin: $base-size 0;
+    }
+
+    .btn-secondary {
+      margin-top: $base-size;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .booking-wrapper {
+    padding: ($base-size * 6) $base-size;
+  }
+
+  .time-picker {
+    @include flex(column, flex-start, space-between);
+  }
+
+  .hour-picker {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .floor-plan {
+    width: 100%;
+    height: 250px;
+
+    .bar {
+      left: 0;
+      bottom: 30px;
+      width: 80px;
+    }
+
+    .table {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+    }
+
+    [data-table="2"] {
+      top: 35px;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    [data-table="3"] {
+      top: 140px;
+    }
+  }
+
+  .booking-options {
+    @include flex(column, flex-start, space-between);
+  }
+
+  .order-confirmation {
+    @include flex(column, flex-start, space-between);
+
+    input {
+      width: 100%;
+      margin: $base-size 0;
+    }
+
+    .btn-secondary {
+      margin-top: $base-size;
+    }
+  }
+}
+
